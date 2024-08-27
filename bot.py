@@ -20,6 +20,9 @@ async def on_ready():
 @bot.command()
 @is_admin()
 async def duplicate_category(ctx, category_id: int):
+    # Envoyer un message pour informer que la commande est en cours d'exécution
+    await ctx.send("Command received. The process is running, please wait...")
+
     original_category = discord.utils.get(ctx.guild.categories, id=category_id)
     if not original_category:
         await ctx.send(f"No category with ID '{category_id}' found.")
@@ -42,6 +45,9 @@ async def duplicate_category(ctx, category_id: int):
 @bot.command()
 @is_admin()
 async def duplicate_category_only(ctx, category_id: int):
+    # Envoyer un message pour informer que la commande est en cours d'exécution
+    await ctx.send("Command received. The process is running, please wait...")
+
     original_category = discord.utils.get(ctx.guild.categories, id=category_id)
     if not original_category:
         await ctx.send(f"No category with ID '{category_id}' found.")

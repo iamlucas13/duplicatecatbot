@@ -5,6 +5,11 @@ Tous les changements notables apportés à ce projet seront documentés dans ce 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - 2024-08-26
+
+### Ajouté
+- Message indiquant l'exécution de la requête.
+
 ## [1.0.0] - 2024-08-26
 
 ### Ajouté
