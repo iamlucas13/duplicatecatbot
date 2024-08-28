@@ -10,6 +10,9 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Ajouté
 - Message indiquant l'exécution de la requête.
 
+### Modifié
+- Mise à jour de la structure du projet pour une décomposition modulaire.
+
 ## [1.0.0] - 2024-08-26
 
 ### Ajouté
