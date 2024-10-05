@@ -12,6 +12,15 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 async def on_ready():
     print(f'Logged in as {bot.user}')
 
+# Gestionnaire d'erreurs global
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CheckFailure):
+        await ctx.send("You do not have the necessary permissions to use this command.")
+    else:
+        # Vous pouvez gérer d'autres types d'erreurs ici
+        await ctx.send(f"An error occurred: {error}")
+
 # Ajouter les commandes
 bot.add_command(duplicate_category)
 bot.add_command(duplicate_category_only)

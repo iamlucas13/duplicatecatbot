@@ -9,6 +9,7 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ### Ajouté
 - Message indiquant l'exécution de la requête.
+- Message de notification lorsqu'un utilisateur n'a pas la permission pour exécuter une commande.
 
 ### Modifié
 - Mise à jour de la structure du projet pour une décomposition modulaire.
