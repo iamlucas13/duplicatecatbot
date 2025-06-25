@@ -33,7 +33,7 @@ class AddRoleToCategorySlash(commands.Cog):
 
         # Créer les permissions avec tout en False par défaut
         denied_permissions = discord.PermissionOverwrite(
-              # Permissions générales
+            # Permissions générales
             view_channel=False,
             manage_channels=False,
             manage_permissions=False,
@@ -71,13 +71,25 @@ class AddRoleToCategorySlash(commands.Cog):
             
             # Permissions de stage
             request_to_speak=False,
-            manage_events=False
+            manage_events=False,
+            use_external_apps=False,
+            send_polls=False,
+            send_voice_messages=False,
+            manage_threads=False,
         )
 
         channels_updated = 0
         errors = []
 
-        # Ajouter le rôle à tous les salons de la catégorie
+        # D'abord, ajouter le rôle à la catégorie elle-même
+        try:
+            await category.set_permissions(role, overwrite=denied_permissions)
+        except discord.Forbidden:
+            errors.append(f"Missing permissions for category '{category.name}'")
+        except Exception as e:
+            errors.append(f"Error in category '{category.name}': {str(e)}")
+
+        # Ensuite, ajouter le rôle à tous les salons de la catégorie
         for channel in category.channels:
             try:
                 await channel.set_permissions(role, overwrite=denied_permissions)
@@ -90,7 +102,7 @@ class AddRoleToCategorySlash(commands.Cog):
                 continue
 
         # Message de confirmation
-        success_message = f"Role '{role.name}' added to {channels_updated} channels in category '{category.name}' with all permissions denied by default."
+        success_message = f"Role '{role.name}' added to category '{category.name}' and {channels_updated} channels with all permissions denied by default."
         
         if errors:
             error_message = f"\n\nErrors encountered:\n" + "\n".join(errors[:5])  # Limiter à 5 erreurs pour éviter les messages trop longs
