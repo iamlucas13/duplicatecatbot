@@ -41,6 +41,7 @@ async def setup_hook():
     await bot.load_extension("commands.ping")
     await bot.load_extension("commands.duplicate_category_only_slash")
     await bot.load_extension("commands.duplicate_category_slash")
+    await bot.load_extension("commands.add_role_to_category_slash")
 
 bot.setup_hook = setup_hook
 
