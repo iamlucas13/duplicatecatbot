@@ -76,6 +76,8 @@ class AddRoleToCategorySlash(commands.Cog):
             send_polls=False,
             send_voice_messages=False,
             manage_threads=False,
+            create_events=False,
+            manage_events=False,
         )
 
         channels_updated = 0
