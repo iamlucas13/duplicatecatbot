@@ -71,12 +71,7 @@ class AddRoleToCategorySlash(commands.Cog):
             
             # Permissions de stage
             request_to_speak=False,
-            manage_events=False,
-            use_external_apps=False,
-            send_polls=False,
-            send_voice_messages=False,
-            manage_threads=False,
-            create_events=False,
+            manage_events=False
         )
 
         channels_updated = 0
